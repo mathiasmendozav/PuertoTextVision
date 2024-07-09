@@ -1,22 +1,22 @@
 ---
 
-# Puerto Madero Real Estate Tool
+# Puerto Madero Real Estate AI Web Tool 🏢🤖
 
-Welcome to the Puerto Madero Real Estate Tool repository! This tool is designed to assist real estate associates in generating text descriptions for advertisements based on images provided.
+Welcome to the Puerto Madero Real Estate AI Web Tool repository! This tool assists real estate associates in generating text descriptions for advertisements based on provided images.
 
 ## Features
 
-- **Image Analysis**: Upload images to generate text descriptions.
-- **Text Generation**: Automatically generate ad text based on image content.
-- **React Frontend**: User-friendly interface built with React.js.
-- **Python Backend**: Flask/Django backend for image processing and text generation.
+- **Image Analysis**: 🖼️ Upload images to generate text descriptions.
+- **Text Generation**: 📝 Automatically generate ad text based on image content.
+- **React Frontend**: ⚛️ User-friendly interface built with React.js.
+- **Python Backend**: 🐍 Flask/Django backend for image processing and text generation.
 
 ## Installation
 
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/mathiasmendozav/PuertoTextVision.git
-   cd puerto-PuertoTextVision
+   cd PuertoTextVision
    ```
 
 2. **Install dependencies**:
