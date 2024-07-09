@@ -9,7 +9,7 @@ Welcome to the Puerto Madero Real Estate AI Web Tool repository! This tool assis
 - **Image Analysis**: 🖼️ Upload images to generate text descriptions.
 - **Text Generation**: 📝 Automatically generate ad text based on image content.
 - **React Frontend**: ⚛️ User-friendly interface built with React.js.
-- **Python Backend**: 🐍 Flask/Django backend for image processing and text generation.
+- **Python Backend**: 🐍 Flask backend for image processing and text generation.
 
 ## Installation
 
