@@ -1,9 +1,7 @@
-// Generator Form
 import React, { useState } from 'react';
 import { TbMessages } from 'react-icons/tb';
 import { GiMoneyStack } from 'react-icons/gi';
-import { BsHearts } from 'react-icons/bs';
-import { BsRobot } from "react-icons/bs";
+import { BsHearts, BsRobot } from 'react-icons/bs';
 
 const Form: React.FC = () => {
     const [campaignTarget, setCampaignTarget] = useState('');
@@ -11,6 +9,7 @@ const Form: React.FC = () => {
     const [textKeywords, setTextKeywords] = useState('');
     const [image, setImage] = useState<File | null>(null);
     const [imagePreview, setImagePreview] = useState<string | null>(null);
+    const [showImageHint, setShowImageHint] = useState(false);
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
@@ -39,21 +38,20 @@ const Form: React.FC = () => {
             <h2 className="text-3xl font-bold text-white mb-8 text-center">Formulario de Campaña</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                    <label className="block text-white mb-2 font-medium">Objetivo de la Campaña</label>
+                    <label className="block text-white mb-4 font-medium">Objetivo de la Campaña</label>
                     <div className="flex justify-between space-x-4">
-                        {['Mensajes', 'Ventas', 'Interacción'].map((target, index) => {
+                        {['Mensajes', 'Ventas', 'Interacción'].map((target) => {
                             const icons = {
                                 'Mensajes': <TbMessages size={24} />,
                                 'Ventas': <GiMoneyStack size={24} />,
                                 'Interacción': <BsHearts size={24} />
                             };
                             return (
-                                <div
+                                <label
                                     key={target}
-                                    className={`flex items-center justify-center cursor-pointer w-1/3 p-3 rounded-xl shadow-lg transition-transform transform hover:scale-105 ${campaignTarget === target ? 'bg-gradient-to-r from-teal-500 to-blue-500 text-white' : 'bg-white text-gray-700 hover:bg-gray-200'}`}
+                                    className={`flex items-center justify-center cursor-pointer w-1/3 p-2 border border-black border-gray-300 rounded-lg shadow-lg transition-transform transform hover:scale-105 ${campaignTarget === target ? 'bg-gradient-to-r from-teal-500 to-blue-500 text-white' : 'bg-white text-gray-700 hover:bg-gray-200'}`}
                                     onClick={() => setCampaignTarget(target)}
                                 >
-                                    {icons[target]}
                                     <input
                                         type="radio"
                                         name="campaignTarget"
@@ -62,10 +60,36 @@ const Form: React.FC = () => {
                                         onChange={() => setCampaignTarget(target)}
                                         className="hidden"
                                     />
-                                    <span className="font-medium ml-1">{target}</span>
-                                </div>
+                                    {icons[target]}
+                                    <span className="font-medium ml-2">{target}</span>
+                                </label>
                             );
                         })}
+                    </div>
+                </div>
+                <div>
+                    <label className="block text-white mb-2 font-medium">Subir Imagen</label>
+                    <div
+                        className="relative w-full h-full min-h-20 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                        onMouseEnter={() => setShowImageHint(true)}
+                        onMouseLeave={() => setShowImageHint(false)}
+                    >
+                        {imagePreview ? (
+                            <div className="relative w-full h-full">
+                                <img src={imagePreview} alt="Vista previa" className="w-full h-full object-cover" />
+                                <div className={`absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white transition-opacity duration-300 ${showImageHint ? 'opacity-100' : 'opacity-0'}`}>
+                                    Haz clic para cambiar de imagen
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="text-white text-center">Haz clic para subir una imagen</div>
+                        )}
+                        <input
+                            type="file"
+                            accept="image/*"
+                            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                            onChange={handleImageChange}
+                        />
                     </div>
                 </div>
                 <div>
@@ -90,22 +114,7 @@ const Form: React.FC = () => {
                         onChange={(e) => setTextKeywords(e.target.value)}
                     />
                 </div>
-                <div>
-                    <label className="block text-white mb-2 font-medium">Subir Imagen</label>
-                    <div className="relative w-full h-full min-h-20 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                        {imagePreview ? (
-                            <img src={imagePreview} alt="Vista previa" className="w-full h-full object-cover" />
-                        ) : (
-                            <div className="text-white text-center">Haz clic para subir una imagen</div>
-                        )}
-                        <input
-                            type="file"
-                            accept="image/*"
-                            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                            onChange={handleImageChange}
-                        />
-                    </div>
-                </div>
+                
                 <button type="submit" className="w-full flex justify-center gap-2 items-center bg-gradient-to-r from-teal-500 to-blue-500 text-white font-bold py-4 rounded-lg shadow-lg hover:from-teal-600 hover:to-blue-600 transition duration-300">
                     <BsRobot />
                     Generar Textos
@@ -116,4 +125,5 @@ const Form: React.FC = () => {
 };
 
 export default Form;
+
 
