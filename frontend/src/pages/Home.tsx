@@ -1,12 +1,11 @@
 // Home Page
-import Navbar from '../components/Navbar'
+import Form from '../components/Form'
 
 const Home = () => {
-    return (
-        <>
-            <Navbar />
-            <h1>Home Page</h1>
-        </>
+    return ( 
+        <div className='min-h-screen items-center pt-3 bg-slate-700'>
+            <Form />
+        </div>
     )
 }
 
