@@ -1,5 +1,9 @@
 // Generator Form
 import React, { useState } from 'react';
+import { TbMessages } from 'react-icons/tb';
+import { GiMoneyStack } from 'react-icons/gi';
+import { BsHearts } from 'react-icons/bs';
+import { BsRobot } from "react-icons/bs";
 
 const Form: React.FC = () => {
     const [campaignTarget, setCampaignTarget] = useState('');
@@ -37,23 +41,31 @@ const Form: React.FC = () => {
                 <div>
                     <label className="block text-white mb-2 font-medium">Objetivo de la Campaña</label>
                     <div className="flex justify-between space-x-4">
-                        {['Mensajes', 'Ventas', 'Interacción'].map((target) => (
-                            <label
-                                key={target}
-                                className={`flex items-center justify-center cursor-pointer w-1/3 p-3 border rounded-lg shadow-sm transition-colors duration-300 ${campaignTarget === target ? 'bg-gradient-to-r from-teal-500 to-blue-500 text-white' : 'bg-white text-gray-700 hover:bg-gray-200'}`}
-                                onClick={() => setCampaignTarget(target)}
-                            >
-                                <input
-                                    type="radio"
-                                    name="campaignTarget"
-                                    value={target}
-                                    checked={campaignTarget === target}
-                                    onChange={() => setCampaignTarget(target)}
-                                    className="hidden"
-                                />
-                                {target}
-                            </label>
-                        ))}
+                        {['Mensajes', 'Ventas', 'Interacción'].map((target, index) => {
+                            const icons = {
+                                'Mensajes': <TbMessages size={24} />,
+                                'Ventas': <GiMoneyStack size={24} />,
+                                'Interacción': <BsHearts size={24} />
+                            };
+                            return (
+                                <div
+                                    key={target}
+                                    className={`flex items-center justify-center cursor-pointer w-1/3 p-3 rounded-xl shadow-lg transition-transform transform hover:scale-105 ${campaignTarget === target ? 'bg-gradient-to-r from-teal-500 to-blue-500 text-white' : 'bg-white text-gray-700 hover:bg-gray-200'}`}
+                                    onClick={() => setCampaignTarget(target)}
+                                >
+                                    {icons[target]}
+                                    <input
+                                        type="radio"
+                                        name="campaignTarget"
+                                        value={target}
+                                        checked={campaignTarget === target}
+                                        onChange={() => setCampaignTarget(target)}
+                                        className="hidden"
+                                    />
+                                    <span className="font-medium ml-1">{target}</span>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
                 <div>
@@ -61,7 +73,7 @@ const Form: React.FC = () => {
                     <input
                         type="text"
                         id="promoKeywords"
-                        className="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                        className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
                         placeholder="Introduce palabras clave para la promoción"
                         value={promoKeywords}
                         onChange={(e) => setPromoKeywords(e.target.value)}
@@ -72,7 +84,7 @@ const Form: React.FC = () => {
                     <input
                         type="text"
                         id="textKeywords"
-                        className="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                        className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
                         placeholder="Introduce palabras clave para el texto"
                         value={textKeywords}
                         onChange={(e) => setTextKeywords(e.target.value)}
@@ -80,7 +92,7 @@ const Form: React.FC = () => {
                 </div>
                 <div>
                     <label className="block text-white mb-2 font-medium">Subir Imagen</label>
-                    <div className="relative w-full h-full border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <div className="relative w-full h-full min-h-20 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center overflow-hidden hover:shadow-lg transition-shadow duration-300">
                         {imagePreview ? (
                             <img src={imagePreview} alt="Vista previa" className="w-full h-full object-cover" />
                         ) : (
@@ -94,8 +106,9 @@ const Form: React.FC = () => {
                         />
                     </div>
                 </div>
-                <button type="submit" className="w-full bg-gradient-to-r from-teal-500 to-blue-500 text-white font-bold py-4 rounded-lg shadow-lg hover:from-teal-600 hover:to-blue-600 transition duration-300">
-                    Generar
+                <button type="submit" className="w-full flex justify-center gap-2 items-center bg-gradient-to-r from-teal-500 to-blue-500 text-white font-bold py-4 rounded-lg shadow-lg hover:from-teal-600 hover:to-blue-600 transition duration-300">
+                    <BsRobot />
+                    Generar Textos
                 </button>
             </form>
         </div>
@@ -103,3 +116,4 @@ const Form: React.FC = () => {
 };
 
 export default Form;
+
