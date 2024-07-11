@@ -131,11 +131,14 @@ const Form: React.FC = () => {
                     </>
                 )}
                 {isSubmitted && (
-                    <motion.div 
-                        animate={{ borderRadius: ["20%", "50%", "20%"], rotate: [0, 360, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="w-full h-full bg-gradient-to-r from-teal-500 to-blue-500"
-                    />
+                    <div className="relative w-full h-full flex items-center justify-center">
+                        <motion.div 
+                            animate={{ borderRadius: ["20%", "50%", "20%"], rotate: [0, 360, 0] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                            className="absolute w-full h-full bg-gradient-to-r from-teal-500 to-blue-500"
+                        />
+                        <span className="absolute text-white text-lg font-bold">Generando...</span>
+                    </div>
                 )}
             </motion.div>
         </div>
