@@ -35,24 +35,11 @@ const Form: React.FC = () => {
         }
     };
 
-    const loadingAnimation = {
-        width: [100, 100, 250, 100, 100],
-        height: [100, 100, 250, 100, 100],
-        borderRadius: ['20%', '50%', '20%', '50%', '20%'],
-        rotate: [0, 360],
-        transition: {
-            duration: 2,
-            repeat: Infinity,
-            repeatType: 'loop',
-            ease: 'easeInOut'
-        }
-    };
-
     return (
         <motion.div 
-            className="bg-[#001540] p-10 rounded-lg shadow-2xl max-w-xl mx-auto mt-10"
-            animate={isSubmitted ? loadingAnimation : {}}
-            transition={{ duration: 0.5 }}
+            className="bg-[#001540] p-10 rounded-lg max-w-xl mx-auto mt-10"
+            animate={isSubmitted ? { width: 250, height: 250, backgroundColor: 'transparent', padding: '0rem'} : {}}
+            transition={{ duration: 1 }}
         >
             {!isSubmitted && (
                 <>
@@ -142,8 +129,16 @@ const Form: React.FC = () => {
                     </form>
                 </>
             )}
+            {isSubmitted && (
+                <motion.div 
+                    animate={{ borderRadius: ["20%", "50%", "20%"], rotate: 360 }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    style={{ width: 250, height: 250, background: 'linear-gradient(to right, #00c6ff, #0072ff)' }}
+                />
+            )}
         </motion.div>
     );
 };
 
 export default Form;
+
