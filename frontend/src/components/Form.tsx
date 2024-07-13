@@ -39,7 +39,8 @@ const Form: React.FC = () => {
         <div className="relative">
             <motion.div 
                 className="bg-[#001540] p-10 rounded-lg shadow-2xl max-w-xl mx-auto mt-10"
-                animate={isSubmitted ? { width: 300, height: 300, padding: '1.2rem', marginTop: '100px'} : {}}
+                initial={{ x: -300, opacity: 0 }}
+                animate={isSubmitted ? { width: 300, height: 300, padding: '1.2rem', marginTop: '100px', x: 0, opacity: 1 } : { x: 0, opacity: 1 }}
                 transition={{ duration: 1 }}
             >
                 {!isSubmitted && (
