@@ -36,17 +36,23 @@ const Form: React.FC = () => {
     };
 
     return (
-        <div className="relative flex items-center justify-center min-h-screen">
+        <div className="relative flex justify-center max-md:mx-6">
             <motion.div 
-                className="bg-[#001540] p-6 sm:p-8 md:p-10 rounded-lg shadow-2xl max-w-lg w-full mx-4 sm:mx-auto mt-10"
+                className="bg-[#001540] p-6 sm:p-8 md:p-10 rounded-md shadow-xl max-w-lg w-full sm:mx-auto"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                style={{ width: isSubmitted ? 300 : 'auto', height: isSubmitted ? 300 : 'auto', padding: isSubmitted ? '1.2rem' : '2.5rem', marginTop: isSubmitted ? '100px' : '10px' }}
+                style={{ 
+                    width: isSubmitted ? 300 : 'auto', 
+                    height: isSubmitted ? 300 : 'auto', 
+                    padding: isSubmitted ? '1.2rem' : '2.5rem', 
+                    marginTop: isSubmitted ? '-90px' : '10px',
+                    boxShadow: '0 4px 30px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(255, 255, 255, 0.1)' 
+                }}
             >
                 {!isSubmitted && (
                     <>
-                        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 text-center">Formulario de Campaña</h2>
+                        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-6 text-center">Formulario de Campaña</h2>
                         <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                             <div>
                                 <label className="block text-white mb-2 sm:mb-4 font-medium">Objetivo de la Campaña</label>
