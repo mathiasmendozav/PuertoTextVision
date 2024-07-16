@@ -46,7 +46,7 @@ const Form: React.FC = () => {
                     width: isSubmitted ? 300 : 'auto', 
                     height: isSubmitted ? 300 : 'auto', 
                     padding: isSubmitted ? '1.2rem' : '2.5rem', 
-                    marginTop: isSubmitted ? '-90px' : '10px',
+                    marginTop: isSubmitted ? '-120px' : '10px',
                     boxShadow: '0 4px 30px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(255, 255, 255, 0.1)' 
                 }}
             >
