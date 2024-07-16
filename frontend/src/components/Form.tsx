@@ -36,20 +36,21 @@ const Form: React.FC = () => {
     };
 
     return (
-        <div className="relative">
+        <div className="relative flex items-center justify-center min-h-screen">
             <motion.div 
-                className="bg-[#001540] p-10 rounded-lg shadow-2xl max-w-xl mx-auto mt-10"
-                initial={{ x: -300, opacity: 0 }}
-                animate={isSubmitted ? { width: 300, height: 300, padding: '1.2rem', marginTop: '100px', x: 0, opacity: 1 } : { x: 0, opacity: 1 }}
+                className="bg-[#001540] p-6 sm:p-8 md:p-10 rounded-lg shadow-2xl max-w-lg w-full mx-4 sm:mx-auto mt-10"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
+                style={{ width: isSubmitted ? 300 : 'auto', height: isSubmitted ? 300 : 'auto', padding: isSubmitted ? '1.2rem' : '2.5rem', marginTop: isSubmitted ? '100px' : '10px' }}
             >
                 {!isSubmitted && (
                     <>
-                        <h2 className="text-3xl font-bold text-white mb-8 text-center">Formulario de Campaña</h2>
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 text-center">Formulario de Campaña</h2>
+                        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                             <div>
-                                <label className="block text-white mb-4 font-medium">Objetivo de la Campaña</label>
-                                <div className="flex justify-between space-x-4">
+                                <label className="block text-white mb-2 sm:mb-4 font-medium">Objetivo de la Campaña</label>
+                                <div className="flex justify-between space-y-2 sm:space-y-0 sm:space-x-4 max-sm:flex-wrap">
                                     {['Mensajes', 'Ventas', 'Interacción'].map((target) => {
                                         const icons = {
                                             'Mensajes': <TbMessages size={24} />,
@@ -59,7 +60,7 @@ const Form: React.FC = () => {
                                         return (
                                             <label
                                                 key={target}
-                                                className={`flex items-center justify-center cursor-pointer w-1/3 p-2 border border-gray-300 rounded-lg shadow-lg transition-transform transform hover:scale-105 ${campaignTarget === target ? 'bg-gradient-to-r from-teal-500 to-blue-500 text-white' : 'bg-white text-gray-700 hover:bg-gray-200'}`}
+                                                className={`flex items-center justify-center cursor-pointer w-full sm:w-1/3 p-2 border border-black rounded-lg shadow-lg transition-transform transform min-[700px]:hover:scale-105 ${campaignTarget === target ? 'bg-gradient-to-r from-teal-500 to-blue-500 text-white' : 'bg-white text-gray-700 hover:bg-gray-200'}`}
                                                 onClick={() => setCampaignTarget(target)}
                                             >
                                                 <input
@@ -78,7 +79,7 @@ const Form: React.FC = () => {
                                 </div>
                             </div>
                             <div>
-                                <label className="block text-white mb-2 font-medium">Subir Imagen</label>
+                                <label className="block text-white mb-2 sm:mb-4 font-medium">Subir Imagen</label>
                                 <div
                                     className="relative w-full h-full min-h-20 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center overflow-hidden hover:shadow-lg transition-shadow duration-300"
                                     onMouseEnter={() => setShowImageHint(true)}
@@ -103,28 +104,28 @@ const Form: React.FC = () => {
                                 </div>
                             </div>
                             <div>
-                                <label className="block text-white mb-2 font-medium" htmlFor="promoKeywords">Palabras Clave de la Promoción</label>
+                                <label className="block text-white mb-2 sm:mb-4 font-medium" htmlFor="promoKeywords">Palabras Clave de la Promoción</label>
                                 <input
                                     type="text"
                                     id="promoKeywords"
-                                    className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                                    className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
                                     placeholder="Introduce palabras clave para la promoción"
                                     value={promoKeywords}
                                     onChange={(e) => setPromoKeywords(e.target.value)}
                                 />
                             </div>
                             <div>
-                                <label className="block text-white mb-2 font-medium" htmlFor="textKeywords">Palabras Clave del Texto Deseado</label>
+                                <label className="block text-white mb-2 sm:mb-4 font-medium" htmlFor="textKeywords">Palabras Clave del Texto Deseado</label>
                                 <input
                                     type="text"
                                     id="textKeywords"
-                                    className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                                    className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
                                     placeholder="Introduce palabras clave para el texto"
                                     value={textKeywords}
                                     onChange={(e) => setTextKeywords(e.target.value)}
                                 />
                             </div>
-                            <button type="submit" className="w-full flex justify-center gap-2 items-center bg-gradient-to-r from-teal-500 to-blue-500 text-white font-bold py-4 rounded-lg shadow-lg hover:from-teal-600 hover:to-blue-600 transition duration-300">
+                            <button type="submit" className="w-full flex justify-center gap-2 items-center bg-gradient-to-r from-teal-500 to-blue-500 text-white font-bold py-3 sm:py-4 rounded-lg shadow-lg hover:from-teal-600 hover:to-blue-600 transition duration-300">
                                 <BsRobot />
                                 Generar Textos
                             </button>
