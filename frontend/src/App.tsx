@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import Results from './pages/Results'
 
 const App: React.FC = () => {
     return (
@@ -10,6 +11,7 @@ const App: React.FC = () => {
         <Navbar />
         <Routes>
           <Route path='/' Component={Home} />
+          <Route path='/results' Component={Results} />
         </Routes>
       </BrowserRouter>
     );
