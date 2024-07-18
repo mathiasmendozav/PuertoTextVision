@@ -4,7 +4,8 @@ import React from 'react';
 import Profilepic from '../../public/logo.jpg';
 import { FaWhatsapp } from "react-icons/fa";
 import { GrCopy } from "react-icons/gr";
-
+import { HiDotsHorizontal } from "react-icons/hi";
+import { RxCross2 } from "react-icons/rx";
 
 const PostCard = ({ text, imageUrl }) => {
     return (
@@ -18,6 +19,10 @@ const PostCard = ({ text, imageUrl }) => {
                 <div>
                     <div className="font-bold">Puerto Madero Urubó</div>
                     <div className="text-sm text-gray-400">Vista Previa de tu anunció</div>
+                </div>
+                <div className='ml-auto flex gap-2'>
+                    <span className='text-xl'><HiDotsHorizontal /></span>
+                    <span className='text-xl'><RxCross2 /></span>
                 </div>
             </div>
             <div className="mb-4">
