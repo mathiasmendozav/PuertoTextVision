@@ -4,15 +4,15 @@ import ImageEx from '../assets/image.jpeg'
 
 const generatedAds = [
     {
-        text: 'Discover the latest trends in fashion!',
+        text: '🌴🏡Atención a todos los interesados en Puerto Madero Urubó Promoción Relámpago con Precios de Liquidación Esta increíble oferta estará disponible solo hasta este domingo. ¡No pierdas esta oportunidad única de inversión 🌟Para más información o para agendar una visita, no dudes en contactarme 😉 Haz realidad tu sueño de tener un lote en Puerto Madero Urubó!',
         imageUrl: ImageEx
     },
     {
-        text: 'Boost your productivity with our new app!',
+        text: '🌴🏡Atención a todos los interesados en Puerto Madero Urubó Promoción Relámpago con Precios de Liquidación Esta increíble oferta estará disponible solo hasta este domingo. ¡No pierdas esta oportunidad única de inversión 🌟Para más información o para agendar una visita, no dudes en contactarme 😉 Haz realidad tu sueño de tener un lote en Puerto Madero Urubó!',
         imageUrl: ImageEx
     },
     {
-        text: 'Explore the world with our travel guides!',
+        text: '🌴🏡Atención a todos los interesados en Puerto Madero Urubó Promoción Relámpago con Precios de Liquidación Esta increíble oferta estará disponible solo hasta este domingo. ¡No pierdas esta oportunidad única de inversión 🌟Para más información o para agendar una visita, no dudes en contactarme 😉 Haz realidad tu sueño de tener un lote en Puerto Madero Urubó!',
         imageUrl: ImageEx
     },
 ];
