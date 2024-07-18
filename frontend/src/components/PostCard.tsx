@@ -3,6 +3,7 @@ import React from 'react';
 // asset
 import Profilepic from '../../public/logo.jpg';
 import { FaWhatsapp } from "react-icons/fa";
+import { GrCopy } from "react-icons/gr";
 
 
 const PostCard = ({ text, imageUrl }) => {
@@ -36,24 +37,13 @@ const PostCard = ({ text, imageUrl }) => {
                 </button>
             </div>
             <div className="flex justify-between items-center text-sm text-gray-400">
-                <div className="flex space-x-4">
-                    <button className="flex items-center space-x-1 focus:outline-none">
-                        <span>👍</span>
-                        <span>Like</span>
-                    </button>
-                    <button className="flex items-center space-x-1 focus:outline-none">
-                        <span>💬</span>
-                        <span>Comment</span>
-                    </button>
-                    <button className="flex items-center space-x-1 focus:outline-none">
-                        <span>↪️</span>
-                        <span>Share</span>
-                    </button>
-                </div>
-                <div>1h</div>
+                
             </div>
-            <div className="mt-2 text-sm text-gray-400">
-                <span className="font-bold">Sofia E Vargas Abrego</span> y 11 personas más
+            <div className="my-2">
+                <button className="w-4/6 py-2.5 flex items-center justify-center mx-auto gap-2 rounded shadow-md bg-gradient-to-r from-teal-500 to-blue-500 text-white font-semibold">
+                    <GrCopy className='text-xl'/>
+                    <span>Copiar Texto Generado</span>
+                </button>
             </div>
         </div>
     );
