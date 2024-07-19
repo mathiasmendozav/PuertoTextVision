@@ -30,7 +30,7 @@ const PostCard = ({ text, imageUrl }) => {
                     <Typewriter
                         text={text}
                         cursorColor="white" // Customize cursor color
-                        typeSpeed={20} // Adjust typing speed here
+                        typeSpeed={14} // Adjust typing speed here
                         deleteSpeed={15} // Speed of backspacing
                         delay={500} // Delay before starting typing
                         loop={false} // Set to true if you want it to loop
