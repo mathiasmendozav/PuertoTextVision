@@ -1,3 +1,6 @@
+////////////////////////////////
+// Post Card Results Component
+///////////////////////////////
 import React from 'react';
 import Typewriter from 'react-typewriter-effect';
 import Profilepic from '../../public/logo.jpg';
@@ -20,8 +23,8 @@ const PostCard = ({ text, imageUrl }) => {
                     <div className="text-sm text-gray-400">Vista Previa de tu anúnci</div>
                 </div>
                 <div className='ml-auto flex gap-2'>
-                    <span className='text-xl'><HiDotsHorizontal /></span>
-                    <span className='text-xl'><RxCross2 /></span>
+                    <span className='text-xl hover:bg-slate-700 bg-transparent rounded-full p-2'><HiDotsHorizontal /></span>
+                    <span className='text-xl hover:bg-slate-700 bg-transparent rounded-full p-2'><RxCross2 /></span>
                 </div>
             </div>
 
@@ -54,7 +57,7 @@ const PostCard = ({ text, imageUrl }) => {
                 {/* Add other elements here if needed */}
             </div>
             <div className="my-2">
-                <button className="w-4/6 py-2.5 flex items-center justify-center mx-auto gap-2 rounded-lg shadow-lg bg-gradient-to-r from-teal-500 to-blue-500 text-white font-semibold transition-transform transform hover:scale-105 hover:shadow-xl">
+                <button className="w-3/4 max-sm:w-5/6 py-2.5 flex items-center justify-center mx-auto gap-2 rounded-lg shadow-lg bg-gradient-to-r from-teal-500 to-blue-500 text-white font-semibold transition-transform transform hover:scale-105 hover:shadow-xl">
                     <GrCopy className='text-xl'/>
                     <span>Copiar Texto Generado</span>
                 </button>
