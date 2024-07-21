@@ -1,7 +1,6 @@
 ////////////////////////////////
 // Post Card Results Component
 ///////////////////////////////
-import React from 'react';
 import Typewriter from 'react-typewriter-effect';
 import Profilepic from '../../public/logo.jpg';
 import { FaWhatsapp } from "react-icons/fa";
