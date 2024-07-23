@@ -1,16 +1,38 @@
 ////////////////////////////////
 // Post Card Results Component
 ///////////////////////////////
+import { useState } from 'react';
 import Typewriter from 'react-typewriter-effect';
 import Profilepic from '../../public/logo.jpg';
 import { FaWhatsapp } from "react-icons/fa";
 import { GrCopy } from "react-icons/gr";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
+import CustomAlert from './customAlert';
 
 const PostCard = ({ text, imageUrl }) => {
+    const [alertVisible, setAlertVisible] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
+
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                setAlertMessage('Texto copiado al portapapeles!');
+                setAlertVisible(true);
+            })
+            .catch(err => {
+                setAlertMessage('Error al copiar el texto');
+                setAlertVisible(true);
+                console.error('Error al copiar el texto: ', err);
+            });
+    };
+
+    const handleCloseAlert = () => {
+        setAlertVisible(false);
+    };
+
     return (
-        <div className="bg-[#001540] text-white p-4 rounded-lg shadow-xl max-w-md w-full">
+        <div className="bg-[#001540] text-white p-4 rounded-lg shadow-xl max-w-md w-full relative">
             <div className="flex items-center mb-4">
                 <img
                     src={Profilepic}
@@ -19,7 +41,7 @@ const PostCard = ({ text, imageUrl }) => {
                 />
                 <div>
                     <div className="font-bold">Puerto Madero Urubó</div>
-                    <div className="text-sm text-gray-400">Vista Previa de tu anúnci</div>
+                    <div className="text-sm text-gray-400">Vista Previa de tu anunció</div>
                 </div>
                 <div className='ml-auto flex gap-2'>
                     <span className='text-xl hover:bg-slate-700 bg-transparent rounded-full p-2'><HiDotsHorizontal /></span>
@@ -31,11 +53,11 @@ const PostCard = ({ text, imageUrl }) => {
                 <p>
                     <Typewriter
                         text={text}
-                        cursorColor="white" // Customize cursor color
-                        typeSpeed={14} // Adjust typing speed here
-                        deleteSpeed={15} // Speed of backspacing
-                        delay={500} // Delay before starting typing
-                        loop={false} // Set to true if you want it to loop
+                        cursorColor="white"
+                        typeSpeed={14}
+                        deleteSpeed={15}
+                        delay={500}
+                        loop={false}
                     />
                 </p>
             </div>
@@ -56,11 +78,15 @@ const PostCard = ({ text, imageUrl }) => {
                 {/* Add other elements here if needed */}
             </div>
             <div className="my-2">
-                <button className="w-3/4 max-sm:w-5/6 py-2.5 flex items-center justify-center mx-auto gap-2 rounded-lg shadow-lg bg-gradient-to-r from-teal-500 to-blue-500 text-white font-semibold transition-transform transform hover:scale-105 hover:shadow-xl">
+                <button 
+                    className="w-3/4 max-sm:w-5/6 py-2.5 flex items-center justify-center mx-auto gap-2 rounded-lg shadow-lg bg-gradient-to-r from-teal-500 to-blue-500 text-white font-semibold transition-transform transform hover:scale-105 hover:shadow-xl"
+                    onClick={copyToClipboard}
+                >
                     <GrCopy className='text-xl'/>
                     <span>Copiar Texto Generado</span>
                 </button>
             </div>
+            <CustomAlert message={alertMessage} isVisible={alertVisible} onClose={handleCloseAlert} />
         </div>
     );
 };
