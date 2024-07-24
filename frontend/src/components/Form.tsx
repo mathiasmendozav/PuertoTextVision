@@ -35,8 +35,8 @@ const Form = ({ onSubmit }) => {
     };
 
     return (
-        <div className="relative flex items-center justify-center min-h-screen">
-            <div className="bg-[#001540] p-6 sm:p-8 md:p-10 rounded-md shadow-xl max-w-lg w-full sm:mx-auto mt-10">
+        <div className="relative flex items-center justify-center max-sm:mt-[-150px]">
+            <div className="bg-[#001540] p-6 sm:p-8 md:p-10 rounded-md shadow-xl max-w-lg w-full">
                 <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-6 text-center">Formulario de Campaña</h2>
                 <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                     <div>
