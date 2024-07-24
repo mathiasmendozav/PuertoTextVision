@@ -32,7 +32,7 @@ const PostCard = ({ text, imageUrl }) => {
     };
 
     return (
-        <div className="bg-[#001540] text-white p-4 rounded-lg shadow-xl max-w-md w-full relative">
+        <div className="bg-[#001540] text-white p-4 rounded-lg shadow-2xl shadow-black max-w-md w-full relative">
             <div className="flex items-center mb-4">
                 <img
                     src={Profilepic}
@@ -73,9 +73,6 @@ const PostCard = ({ text, imageUrl }) => {
                     <FaWhatsapp className="text-xl" />
                     <span className="font-bold">WhatsApp</span>
                 </button>
-            </div>
-            <div className="flex justify-between items-center text-sm text-gray-400">
-                {/* Add other elements here if needed */}
             </div>
             <div className="my-2">
                 <button 
