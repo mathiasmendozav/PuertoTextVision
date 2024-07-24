@@ -18,7 +18,7 @@ const Results = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center pt-3 bg-gray-400">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-400">
             <div className="my-10 px-6 grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
                 {generatedAds.map((ad, index) => (
                     <motion.div
