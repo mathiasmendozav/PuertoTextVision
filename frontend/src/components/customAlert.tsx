@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { GrCopy } from "react-icons/gr";
+import { IoCheckmarkDoneCircle } from "react-icons/io5";
 
 const CustomAlert = ({ message, isVisible, onClose }) => {
     useEffect(() => {
         if (isVisible) {
             const timer = setTimeout(() => {
                 onClose();
-            }, 50000);
+            }, 3000);
             return () => clearTimeout(timer);
         }
     }, [isVisible, onClose]);
@@ -23,29 +23,30 @@ const CustomAlert = ({ message, isVisible, onClose }) => {
                     className="fixed inset-0 flex items-center justify-center text-center mb-40 z-50"
                 >
                     <motion.div
-                        className="bg-[#001540] p-4 w-64 h-42 border-4 border-green-500 rounded-2xl shadow-lg"
+                        className="bg-[#001540] p-4 w-64 h-42 border-4 border-white rounded-3xl shadow-lg shadow-gray-900"
                         initial={{ y: '-50%' }}
                         animate={{ y: '0%' }}
                         exit={{ y: '-50%' }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        transition={{ duration: 0.3, ease: "easeInOut"}}
                     >
-                        <div className="w-full h-full flex flex-col items-center justify-center font-semibold mt-3">
+                        <div className="w-full h-full flex flex-col items-center justify-center font-semibold mt-1">
                             <motion.div
                                 initial={{ scale: 0.9 }}
-                                animate={{ scale: 1.1}}
-                                exit={{ scale: 1 }}
+                                animate={{ scale: 1.1 }}
+                                exit={{ scale: 1.1 }}
                                 transition={{ 
                                     duration: 0.5, 
                                     ease: "easeInOut",
-                                    repeat: 2,
+                                    repeat: 3,
                                     repeatType: "reverse"
                                 }}
                             >
-                                <GrCopy className='text-[70px] text-green-500'/>
+                                <IoCheckmarkDoneCircle
+                                    className='text-[75px] text-green-500 shadow-sm shadow-white rounded-full'
+                                />
                             </motion.div>
-                            <div className='mt-3 text-lg italic'>{message}</div>
+                            <div className='mt-2 text-lg italic text-white'>{message}</div>
                         </div>
-                        
                     </motion.div>
                 </motion.div>
             )}
