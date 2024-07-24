@@ -17,7 +17,7 @@ const PostCard = ({ text, imageUrl }) => {
     const copyToClipboard = () => {
         navigator.clipboard.writeText(text)
             .then(() => {
-                setAlertMessage('Texto copiado al portapapeles!');
+                setAlertMessage('Texto ha sido copiado!');
                 setAlertVisible(true);
             })
             .catch(err => {
