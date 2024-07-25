@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const LoadingSpinner: React.FC = () => {
     return (
-        <div className="flex items-center justify-center w-[250px] h-[250px] bg-[#001540] rounded-md shadow-xl mt-[-200px] max-w-lg relative">
+        <div className="flex items-center justify-center w-[250px] h-[250px] bg-[#001540] rounded-md shadow-xl mt-[130px] max-w-lg relative">
             <motion.div
                 animate={{ scale: [1, 1.8, 1], rotate: [0, 360, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
