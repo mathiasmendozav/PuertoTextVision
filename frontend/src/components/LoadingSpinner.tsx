@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const LoadingSpinner: React.FC = () => {
+    const [textIndex, setTextIndex] = useState(0);
+    const loadingTexts = [
+        "Analizando Foto...",
+        "Extrayendo patrones...",
+        "Generando textos..."
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTextIndex(prevIndex => (prevIndex + 1) % loadingTexts.length);
+        }, 4000); // Change text every 2 seconds
+
+        return () => clearInterval(interval); // Clear interval on component unmount
+    }, [loadingTexts.length]);
+
     return (
         <div className="flex items-center justify-center w-[250px] h-[250px] bg-[#001540] rounded-md shadow-xl mt-[130px] max-w-lg relative">
             <motion.div
@@ -15,7 +30,9 @@ const LoadingSpinner: React.FC = () => {
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 />
             </motion.div>
-            <span className="absolute text-white text-lg font-bold">Generando...</span>
+            <span className="absolute text-white text-lg font-bold">
+                {loadingTexts[textIndex]}
+            </span>
         </div>
     );
 };
