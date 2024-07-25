@@ -16,7 +16,7 @@ const Home = () => {
         // Simulate loading and generating ads
         setTimeout(() => {
             navigate('/results', { state: { generatedAds: dummyData } });
-        }, 6000); // Wait for 5 seconds
+        }, 12000); // Wait for 5 seconds
     };
 
     return (
