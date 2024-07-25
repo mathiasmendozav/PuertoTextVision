@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Form from '../components/Form';
 import LoadingSpinner from '../components/LoadingSpinner';
-import HomeBG from '../assets/promocreditoBack.webp';
 import dummyData from '../data/dummyData';
 
 const Home = () => {
@@ -17,16 +16,18 @@ const Home = () => {
         // Simulate loading and generating ads
         setTimeout(() => {
             navigate('/results', { state: { generatedAds: dummyData } });
-        }, 5000); // Wait for 5 seconds
+        }, 6000); // Wait for 5 seconds
     };
 
     return (
-        <div className='min-h-screen flex flex-col items-center justify-center bg-slate-100' style={{ backgroundImage: `url(${HomeBG})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            {isSubmitted ? (
-                <LoadingSpinner />
-            ) : (
-                <Form onSubmit={handleFormSubmit} />
-            )}
+        <div className='w-full min-h-screen bg-gray-300'>
+            <div className='flex items-center justify-center pt-16 pb-24'>
+                {isSubmitted ? (
+                    <LoadingSpinner />
+                ) : (
+                    <Form onSubmit={handleFormSubmit} />
+                )}
+            </div>
         </div>
     );
 };
