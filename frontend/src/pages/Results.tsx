@@ -5,7 +5,6 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PostCard from '../components/PostCard';
-import HomeBG from '../assets/promocreditoBack.webp';
 
 const Results = () => {
     const location = useLocation();
@@ -18,8 +17,8 @@ const Results = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-300">
-            <div className="my-8 max-md:my-6 px-6 grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
+        <div className="min-h-screen flex flex-col items-center justify-center pb-16 bg-gray-300">
+            <div className="my-8 max-md:my-7 px-6 grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
                 {generatedAds.map((ad, index) => (
                     <motion.div
                         key={index}
