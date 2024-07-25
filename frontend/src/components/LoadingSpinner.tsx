@@ -5,7 +5,7 @@ const LoadingSpinner: React.FC = () => {
     const [textIndex, setTextIndex] = useState(0);
     const loadingTexts = [
         "Analizando Foto...",
-        "Extrayendo patrones...",
+        "Extrayendo...",
         "Generando textos..."
     ];
 
