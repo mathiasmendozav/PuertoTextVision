@@ -39,8 +39,8 @@ const Form = ({ onSubmit }) => {
     };
 
     return (
-        <div className="bg-[#001540] shadow-xl shadow-gray-800 mb-6 flex items-center justify-center rounded-md">
-            <div className="w-full p-9 sm:p-8 md:p-10 shadow-xl">
+        <div className="bg-[#001540] max-sm:w-[90%] shadow-xl shadow-gray-800 mb-6 flex items-center justify-center rounded-md">
+            <div className="max-w-xl max-sm:w-full p-8 sm:p-8 md:p-10 shadow-xl">
                 <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 text-center">Formulario de Campaña</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
                     <div>
@@ -76,7 +76,7 @@ const Form = ({ onSubmit }) => {
                     <div>
                         <label className="block text-white mb-3 font-medium">Subir Imagen</label>
                         <div
-                            className="relative w-full h-48 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                            className="relative w-full min-h-48 h-full border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center overflow-hidden hover:shadow-lg transition-shadow duration-300"
                             onMouseEnter={() => setShowImageHint(true)}
                             onMouseLeave={() => setShowImageHint(false)}
                         >
@@ -97,17 +97,6 @@ const Form = ({ onSubmit }) => {
                                 onChange={handleImageChange}
                             />
                         </div>
-                    </div>
-                    <div>
-                        <label className="block text-white mb-3 font-medium" htmlFor="promoKeywords">Palabras Clave de la Promoción</label>
-                        <input
-                            type="text"
-                            id="promoKeywords"
-                            className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
-                            placeholder="Introduce palabras clave para la promoción"
-                            value={promoKeywords}
-                            onChange={(e) => setPromoKeywords(e.target.value)}
-                        />
                     </div>
                     <div>
                         <label className="block text-white mb-3 font-medium" htmlFor="textKeywords">Palabras Clave del Texto Deseado</label>
