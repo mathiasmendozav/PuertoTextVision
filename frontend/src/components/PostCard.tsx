@@ -41,7 +41,7 @@ const PostCard = ({ text, imageUrl }) => {
                 />
                 <div>
                     <div className="font-bold">Puerto Madero Urubó</div>
-                    <div className="text-sm text-gray-400">Vista Previa de tu anunció</div>
+                    <div className="text-sm text-gray-400">Vista Previa de tu anuncio</div>
                 </div>
                 <div className='ml-auto flex gap-2'>
                     <span className='text-xl hover:bg-slate-700 bg-transparent rounded-full p-2'><HiDotsHorizontal /></span>
@@ -50,7 +50,7 @@ const PostCard = ({ text, imageUrl }) => {
             </div>
 
             <div className="mb-4">
-                <p>
+                <div className="whitespace-pre-line w-full">
                     <Typewriter
                         text={text}
                         cursorColor="white"
@@ -59,7 +59,7 @@ const PostCard = ({ text, imageUrl }) => {
                         delay={500}
                         loop={false}
                     />
-                </p>
+                </div>
             </div>
             <div className="-mx-4">
                 <img src={imageUrl} alt="Ad Visual" className="w-full" />
