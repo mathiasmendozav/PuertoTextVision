@@ -21,7 +21,7 @@ const Home = () => {
 
     return (
         <div className='w-full min-h-screen bg-gray-300'>
-            <div className='flex items-center justify-center pt-10 md:pt-12 pb-24 px-10'>
+            <div className='flex items-center justify-center pt-8 md:pt-12 pb-6 px-2'>
                 {isSubmitted ? (
                     <LoadingSpinner />
                 ) : (
