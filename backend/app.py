@@ -1,5 +1,5 @@
 # Main Flask App Backend will go here...
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
@@ -33,6 +33,19 @@ def home():
     
     return result
     #=> "Tina has one brother and one sister. From the brother's ...
+    
+@app.route('/submit', methods=['POST'])
+def submit_form():
+    campaign_target = request.form.get('campaignTarget')
+    text_keywords = request.form.get('textKeywords')
+    prices = request.form.get('prices')
+
+    # Process the data as needed
+    print(f'Campaign Target: {campaign_target}')
+    print(f'Text Keywords: {text_keywords}')
+    print(f'Prices: {prices}')
+
+    return jsonify({'message': 'Form data received successfully'})
 
 if __name__  == '__main__':
     app.run(debug=True)
