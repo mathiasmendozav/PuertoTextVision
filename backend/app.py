@@ -45,7 +45,7 @@ def submit_form():
     print(f'Text Keywords: {text_keywords}')
     print(f'Prices: {prices}')
 
-    return jsonify({'message': 'Form data received successfully'})
+    return jsonify({'message': 'Hello World, Im a robot!'})
 
 if __name__  == '__main__':
     app.run(debug=True)
