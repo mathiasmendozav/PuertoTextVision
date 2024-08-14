@@ -11,12 +11,31 @@ const Home = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const navigate = useNavigate();
 
-    const handleFormSubmit = (formData) => {
+    const handleFormSubmit = async (formData) => {
         setIsSubmitted(true);
-        // Simulate loading and generating ads
-        setTimeout(() => {
-            navigate('/results', { state: { generatedAds: dummyData } });
-        }, 12000); // Wait for 5 seconds
+
+        try {
+            const response = await fetch('http://localhost:5000/submit', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Form data successfully sent: ', result);
+
+                // Simulate loading and generating ads
+                setTimeout(() => {
+                    navigate('/results', { state: { generatedAds: dummyData } });
+                }, 9000);
+            } else {
+                console.error('Failed to send form data', response.statusText);
+                setIsSubmitted(false);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            setIsSubmitted(false);
+        }
     };
 
     return (
