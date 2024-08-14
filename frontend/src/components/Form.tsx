@@ -14,37 +14,22 @@ const Form = ({ onSubmit }) => {
     const [includePrices, setIncludePrices] = useState(false);
     const [prices, setPrices] = useState('');
 
-    const handleSubmit = async (event:any) => {
-        event?.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
-        const formData = new FormData()
-
+        const formData = new FormData();
         formData.append('campaignTarget', campaignTarget);
         formData.append('textKeywords', textKeywords);
         formData.append('prices', prices);
 
-        // if(image) {
+        // if (image) {
         //     formData.append('image', image);
         // }
 
-        try{
-            const response = await fetch('http://127.0.0.1:5000/submit', {
-                method: 'POST',
-                body: formData
-            })
+        onSubmit(formData); // Call the onSubmit function passed as a prop
+    };
 
-            if(response.ok){
-                console.log('Form submitted successfully')
-            }
-            else{
-                console.log('Error submitting form')
-            }
-        } catch(e){
-            console.log('Error:', e);   
-        }
-    }
-
-    const handleImageChange = (event:any) => {
+    const handleImageChange = (event) => {
         if (event.target.files && event.target.files[0]) {
             const file = event.target.files[0];
             setImage(file);
@@ -166,7 +151,7 @@ const Form = ({ onSubmit }) => {
                             />
                         </div>
                     )}
-                    <button type="submit" onSubmit={handleSubmit} className="w-full flex justify-center gap-2 items-center bg-gradient-to-r from-teal-500 to-blue-500 text-white font-bold py-3 rounded-lg shadow-lg hover:from-teal-600 hover:to-blue-600 transition duration-300">
+                    <button type="submit" className="w-full flex justify-center gap-2 items-center bg-gradient-to-r from-teal-500 to-blue-500 text-white font-bold py-3 rounded-lg shadow-lg hover:from-teal-600 hover:to-blue-600 transition duration-300">
                         <BsRobot />
                         Generar Textos
                     </button>
