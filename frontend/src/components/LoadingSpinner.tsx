@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 
 const LoadingSpinner: React.FC = () => {
     const [textIndex, setTextIndex] = useState(0);
+    const [showFinalText, setShowFinalText] = useState(false); // Track if final text should be shown
     const loadingTexts = [
         "Analizando Foto...",
         "Extrayendo...",
@@ -10,12 +11,20 @@ const LoadingSpinner: React.FC = () => {
     ];
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setTextIndex(prevIndex => (prevIndex + 1) % loadingTexts.length);
-        }, 4000); // Change text every 2 seconds
+        if (showFinalText) return; // Stop updating if final text should be shown
 
-        return () => clearInterval(interval); // Clear interval on component unmount
-    }, [loadingTexts.length]);
+        const timeout = setTimeout(() => {
+            setTextIndex(prevIndex => {
+                const nextIndex = prevIndex + 1;
+                if (nextIndex === loadingTexts.length) {
+                    setShowFinalText(true); // Show final text
+                }
+                return nextIndex;
+            });
+        }, 3000); // Change text every 3 seconds
+
+        return () => clearTimeout(timeout); // Clear timeout on component unmount
+    }, [textIndex, showFinalText]);
 
     return (
         <div className="flex items-center justify-center w-[250px] h-[250px] bg-[#001540] rounded-md shadow-xl mt-[130px] max-w-lg relative">
@@ -31,7 +40,7 @@ const LoadingSpinner: React.FC = () => {
                 />
             </motion.div>
             <span className="absolute text-white text-lg font-bold">
-                {loadingTexts[textIndex]}
+                {showFinalText ? loadingTexts[2] : loadingTexts[textIndex]}
             </span>
         </div>
     );
