@@ -13,14 +13,7 @@ const Navbar = () => {
                 <span className="font-semibold text-xl max-md:text-base">PuertoTextVision</span>
             </div>
             <Link to={'/'} onClick={() => {
-                axios.get('http://127.0.0.1:5000')
-                .then(response => {
-                    console.log(response.data)
-                })
-                .catch(error => {
-                    console.error(error)
-                })
-                // if (window.location.pathname === '/') { window.location.reload(); }
+                if (window.location.pathname === '/') { window.location.reload(); }
             }}>
                 <button className="bg-gradient-to-r from-teal-500 to-blue-500 text-white font-semibold py-2 px-4 flex items-center gap-2 rounded shadow-md max-md:px-2.5 max-md:text-sm">
                     <BsRobot /> Generar Texto
