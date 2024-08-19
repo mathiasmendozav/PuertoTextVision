@@ -44,8 +44,50 @@ def submit_form():
     print(f'Campaign Target: {campaign_target}')
     print(f'Text Keywords: {text_keywords}')
     print(f'Prices: {prices}')
+    
+    prompt = f"""Please write me three different options for my text I'll use to publish an ad for Puerto Madero Urubó, a real estate company/urbanización that sells terrenos, given the following structure for the options, use the provided parameters to generate the 3 different options, make sure you use parameters: campaign target, text keywords and prices for the head of the text, then make sure you place the specs of the project in the middle with space between top and bottom of text, after that at the very bottom of the text the call to action part  using the contact info parameter
+Don't use bold text and use the emojis as provided, make the text pretty and use emojis that would go along with the context of the text.
+Campaign Target: {campaign_target}
+Text Keywords: {text_keywords}
+Prices: {prices}
 
-    return jsonify({'message': 'Hello World, Im a robot!'})
+Please return the 3 options inside a json list, don't return the parameters.
+
+Text Structure:
+
+[Promocion y precios]
+
+🏨 Hotel Eco Resort 
+🐴 Club Hípico 
+🏇🏻 Club de Polo 
+🏝️ Laguna Paisajista 
+🏊🏻Club House
+🛣️Calles Pavimentadas
+💧⚡Servicios Básicos
+🏢👷🏻‍♂️Proyectos Inmobiliarios
+[You can edit the specs section to have variations if you want, but don't modify too much these emojis]
+
+[Call to action ending]"""
+    
+    input = {
+        "prompt": prompt,
+        "system_prompt": "You are a helpful assistant",
+        "temperature": 0.7,
+        "length_penalty": 1,
+        "max_new_tokens": 1000,
+        "min_new_tokens": 500,
+        "max_tokens": 1000,
+        "min_tokens": 500
+    }
+
+    output = replicate.run(
+        "meta/meta-llama-3.1-405b-instruct",
+        input=input
+    )
+    result = "".join(output)
+    
+    return result
+
 
 if __name__  == '__main__':
     app.run(debug=True)
