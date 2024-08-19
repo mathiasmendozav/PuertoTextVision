@@ -26,7 +26,7 @@ def home():
     }
 
     output = replicate.run(
-        "meta/meta-llama-3.1-405b-instruct",
+        "meta/meta-llama-3-8b-instruct",
         input=input
     )
     result = "".join(output)
@@ -50,6 +50,7 @@ Don't use bold text and use the emojis as provided, make the text pretty and use
 Campaign Target: {campaign_target}
 Text Keywords: {text_keywords}
 Prices: {prices}
+Contact Info: https://walink.co/607ea3
 
 Please return the 3 options inside a json list, don't return the parameters.
 
@@ -81,7 +82,7 @@ Text Structure:
     }
 
     output = replicate.run(
-        "meta/meta-llama-3.1-405b-instruct",
+        "meta/meta-llama-3-8b-instruct",
         input=input
     )
     result = "".join(output)
