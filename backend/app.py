@@ -15,8 +15,6 @@ load_dotenv()
 # Get the API key for Llama3.1
 api_key = os.getenv("REPLICATE_API_TOKEN")
 
-print(f'My api key is: {api_key}')
-
 # Routes
 @app.route('/')
 def home():
@@ -75,10 +73,10 @@ Text Structure:
         "system_prompt": "You are a helpful assistant",
         "temperature": 0.7,
         "length_penalty": 1,
-        "max_new_tokens": 1000,
-        "min_new_tokens": 500,
-        "max_tokens": 1000,
-        "min_tokens": 500
+        "max_new_tokens": 2000,
+        "min_new_tokens": 800,
+        "max_tokens": 2000,
+        "min_tokens": 800
     }
 
     output = replicate.run(
