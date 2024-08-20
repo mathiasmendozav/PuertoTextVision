@@ -21,13 +21,12 @@ const Home = () => {
             });
 
             if (response.ok) {
-                const result = await response.json();
+                const result = await response.text();
                 console.log('Form data successfully sent: ', result);
-
                 // Simulate loading and generating ads
                 setTimeout(() => {
                     navigate('/results', { state: { generatedAds: dummyData } });
-                }, 9000);
+                }, 2000);
             } else {
                 console.error('Failed to send form data', response.statusText);
                 setIsSubmitted(false);
