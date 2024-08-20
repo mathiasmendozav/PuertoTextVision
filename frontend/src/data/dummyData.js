@@ -4,21 +4,19 @@ import ImageEx from '../assets/image.jpeg';
 
 const generatedAds = [
     {
-        text: `🌴🏡 Atención, interesados en Puerto Madero Urubó:
+        text: `¡Aprovecha la promoción relámpago! 🏨
+20% de descuento por 7 días en terrenos en Puerto Madero Urubó.
 
-✨ ¡Promoción Relámpago con Precios de Liquidación! 🌟
+🏨 Hotel Eco Resort 
+🐴 Club Hípico 
+🏇🏻 Club de Polo 
+🏝️ Laguna Paisajista 
+🏊🏻Club House
+🛣️Calles Pavimentadas
+💧⚡Servicios Básicos
+🏢👷🏻‍♂️Proyectos Inmobiliarios
 
-🔹 Descuento de 1 $US por m² en terrenos desde 300 m².
-🔹 Oferta válida solo hasta este domingo.
-🔹 No pierdas esta oportunidad única de inversión.
-
-🏨 Hotel Eco Resort
-🐴 Club Hípico
-🏇🏻 Club de Polo
-🏝️ Laguna Paisajista
-🏊🏻♀️ Club House
-
-Contáctanos y agenda tu visita al enlace: ⚓️ https://bit.ly/AsesoraCeciliaVargas`,
+¡No te pierdas esta oportunidad! Contacta con nosotros en https://walink.co/607ea3`,
         imageUrl: ImageEx
     },
     {
