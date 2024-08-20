@@ -43,7 +43,7 @@ const Form = ({ onSubmit }) => {
     return (
         <div className="bg-[#001540] max-sm:w-[90%] shadow-xl shadow-gray-800 mb-6 flex items-center justify-center rounded-md">
             <div className="max-w-xl max-sm:w-full p-8 sm:p-8 md:p-10 shadow-xl">
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 text-center">Formulario de Campaña</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 text-center">Generador de Textos</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
                     <div>
                         <label className="block text-white mb-3 font-medium">Objetivo de la Campaña</label>
