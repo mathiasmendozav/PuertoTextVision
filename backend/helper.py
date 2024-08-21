@@ -1,19 +1,13 @@
-import re
-
-def extract_options(api_response):
-    # Join the list of fragments into a single string
-    combined_text = ''.join(api_response)
+def extract_options(response_text):
+    # Split the response into parts using "Option " as the delimiter
+    options = response_text.split('Option ')[1:]  # Remove the part before "Option 1:"
     
-    # Find the text within the square brackets
-    match = re.search(r'\[\s*"(.*?)"\s*\]', combined_text, re.DOTALL)
+    # Clean up each option by removing the text before the first newline
+    cleaned_options = []
+    for option in options:
+        first_newline_index = option.find('\n')
+        if first_newline_index != -1:
+            cleaned_option = option[first_newline_index + 1:].strip()
+            cleaned_options.append(cleaned_option)
     
-    if match:
-        # Extract the text within the first set of brackets
-        text_with_options = match.group(1)
-        
-        # Split options by '","' and clean them
-        options = [option.strip().strip('"') for option in text_with_options.split('","')]
-        
-        return options
-
-    return []
+    return cleaned_options
