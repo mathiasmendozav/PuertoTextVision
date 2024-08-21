@@ -22,10 +22,6 @@ const Form = ({ onSubmit }) => {
         formData.append('textKeywords', textKeywords);
         formData.append('prices', prices);
 
-        // if (image) {
-        //     formData.append('image', image);
-        // }
-
         onSubmit(formData); // Call the onSubmit function passed as a prop
     };
 
