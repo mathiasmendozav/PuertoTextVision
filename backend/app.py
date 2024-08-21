@@ -41,9 +41,10 @@ def submit_form():
     # Process the data as needed
     print(f'Campaign Target: {campaign_target}')
     print(f'Text Keywords: {text_keywords}')
-    print(f'Prices: {prices}')
+    if prices:
+        print(f'Prices: {prices}')
     
-    prompt = f"""Please write me three different options for my text I'll use to publish an ad for Puerto Madero Urubó, a real estate company/urbanización that sells terrenos, given the following structure for the options, use the provided parameters to generate the 3 different options, make sure you use parameters: campaign target, text keywords and prices for the head of the text, then make sure you place the specs of the project in the middle with space between top and bottom of text, after that at the very bottom of the text the call to action part  using the contact info parameter
+    promptWithPrices = f"""Please write me three different options for my text I'll use to publish an ad for Puerto Madero Urubó, a real estate company/urbanización that sells terrenos, given the following structure for the options, use the provided parameters to generate the 3 different options, make sure you use parameters: campaign target, text keywords and prices for the head of the text, then make sure you place the specs of the project in the middle with space between top and bottom of text, after that at the very bottom of the text the call to action part  using the contact info parameter
 Don't use bold text and use the emojis as provided, make the text pretty and use emojis that would go along with the context of the text.
 Campaign Target: {campaign_target}
 Text Keywords: {text_keywords}
@@ -67,6 +68,35 @@ Text Structure:
 [You can edit the specs section to have variations if you want, but don't modify too much these emojis]
 
 [Call to action ending]"""
+
+    promptWithoutPrices = f"""Please write me three different options for my text I'll use to publish an ad for Puerto Madero Urubó, a real estate company/urbanización that sells terrenos, given the following structure for the options, use the provided parameters to generate the 3 different options, make sure you use parameters: campaign target, text keywords for the head of the text, then make sure you place the specs of the project in the middle with space between top and bottom of text, after that at the very bottom of the text the call to action part  using the contact info parameter
+Don't use bold text and use the emojis as provided, make the text pretty and use emojis that would go along with the context of the text.
+Campaign Target: {campaign_target}
+Text Keywords: {text_keywords}
+Contact Info: https://walink.co/607ea3
+
+Please return the 3 options inside a json list, don't return the parameters. And don't 
+
+Text Structure:
+
+[Promocion]
+
+🏨 Hotel Eco Resort 
+🐴 Club Hípico 
+🏇🏻 Club de Polo 
+🏝️ Laguna Paisajista 
+🏊🏻Club House
+🛣️Calles Pavimentadas
+💧⚡Servicios Básicos
+🏢👷🏻‍♂️Proyectos Inmobiliarios
+[You can edit the specs section to have variations if you want, but don't modify too much these emojis]
+
+[Call to action ending]"""
+
+    if prices:
+        prompt = promptWithPrices
+    else:
+        prompt = promptWithoutPrices
     
     input = {
         "prompt": prompt,
