@@ -52,7 +52,7 @@ Text Keywords: {text_keywords}
 Prices: {prices}
 Contact Info: https://walink.co/607ea3
 
-Please return the 3 options inside a json list, don't return the parameters or any message just the responses inside the [].
+Please return the 3 options separated so it's easier to iterate through them, don't return the parameters or any message just the responses inside the result.
 
 Text Structure:
 
@@ -68,15 +68,15 @@ Text Structure:
 🏢👷🏻‍♂️Proyectos Inmobiliarios
 [You can edit the specs section to have variations if you want, but don't modify too much these emojis]
 
-[Call to action ending]"""
+[Llamada a la acción]"""
 
-    promptWithoutPrices = f"""Please write me three different options for my text I'll use to publish an ad for Puerto Madero Urubó, a real estate company/urbanización that sells terrenos, given the following structure for the options, use the provided parameters to generate the 3 different options, make sure you use parameters: campaign target, text keywords for the head of the text, then make sure you place the specs of the project in the middle with space between top and bottom of text, after that at the very bottom of the text the call to action part  using the contact info parameter
+    promptWithoutPrices = f"""Please write me three different options for my text I'll use to publish an ad for Puerto Madero Urubó, a real estate company/urbanización that sells terrenos, given the following structure for the options, use the provided parameters to generate the 3 different options, make sure you use parameters: campaign target, text keywords for the head of the text, then make sure you place the specs of the project in the middle with space between top and bottom of text, after that at the very bottom of the text the call to action part using the contact info parameter
 Don't use bold text and use the emojis as provided, make the text pretty and use emojis that would go along with the context of the text.
 Campaign Target: {campaign_target}
 Text Keywords: {text_keywords}
 Contact Info: https://walink.co/607ea3
 
-Please return the 3 options inside a json list, don't return the parameters or any message just the responses inside the [].
+Please return the 3 options separated so it's easier to iterate through them, don't return the parameters or any message just the responses inside the result.
 
 Text Structure:
 
@@ -92,7 +92,7 @@ Text Structure:
 🏢👷🏻‍♂️Proyectos Inmobiliarios
 [You can edit the specs section to have variations if you want, but don't modify too much these emojis]
 
-[Call to action ending]"""
+[Llamada a la acción]"""
 
     if prices:
         prompt = promptWithPrices
@@ -115,6 +115,8 @@ Text Structure:
         input=input
     )
     result = "".join(output)
+    
+    result = extract_options(result)
     
     return result
 
