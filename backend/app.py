@@ -45,8 +45,8 @@ def submit_form():
     if prices:
         print(f'Prices: {prices}')
     
-    promptWithPrices = f"""Please write me three different options for my text I'll use to publish an ad for Puerto Madero Urubó, a real estate company/urbanización that sells terrenos, given the following structure for the options, use the provided parameters to generate the 3 different options, make sure you use parameters: campaign target, text keywords and prices for the head of the text, then make sure you place the specs of the project in the middle with space between top and bottom of text, after that at the very bottom of the text the call to action part  using the contact info parameter
-Don't use bold text and use the emojis as provided, make the text pretty and use emojis that would go along with the context of the text.
+    promptWithPrices = f"""Please write me three different options different from each other for my text I'll use to publish an ad for Puerto Madero Urubó, a real estate company/urbanización that sells terrenos, given the following structure for the options, use the provided parameters to generate the 3 different options, make sure you use parameters: campaign target, text keywords and prices for the head of the text, then make sure you place the specs of the project in the middle with space between top and bottom of text, after that at the very bottom of the text the call to action part  using the contact info parameter
+Don't use bold text, make the text pretty and use emojis that would go along with the context of the text.
 Campaign Target: {campaign_target}
 Text Keywords: {text_keywords}
 Prices: {prices}
@@ -56,7 +56,7 @@ Please return the 3 options separated so it's easier to iterate through them, do
 
 Text Structure:
 
-[Promocion y precios]
+[Con emojis Promocion y precios]
 
 🏨 Hotel Eco Resort 
 🐴 Club Hípico 
@@ -66,21 +66,22 @@ Text Structure:
 🛣️Calles Pavimentadas
 💧⚡Servicios Básicos
 🏢👷🏻‍♂️Proyectos Inmobiliarios
-[You can edit the specs section to have variations if you want, but don't modify too much these emojis]
+[I want the specs from the options to be different, play with the emojis or skip this part on one option]
 
-[Llamada a la acción]"""
+[Llamada a la acción, hazlo llamativo e incluye emojis]"""
 
-    promptWithoutPrices = f"""Please write me three different options for my text I'll use to publish an ad for Puerto Madero Urubó, a real estate company/urbanización that sells terrenos, given the following structure for the options, use the provided parameters to generate the 3 different options, make sure you use parameters: campaign target, text keywords for the head of the text, then make sure you place the specs of the project in the middle with space between top and bottom of text, after that at the very bottom of the text the call to action part using the contact info parameter
-Don't use bold text and use the emojis as provided, make the text pretty and use emojis that would go along with the context of the text.
+    promptWithoutPrices = f"""Please write me three different options different from each other for my text I'll use to publish an ad for Puerto Madero Urubó, a real estate company/urbanización that sells terrenos, given the following structure for the options, use the provided parameters to generate the 3 different options, make sure you use parameters: campaign target and text keywords for the head of the text, then make sure you place the specs of the project in the middle with space between top and bottom of text, after that at the very bottom of the text the call to action part  using the contact info parameter
+Don't use bold text, make the text pretty and use emojis that would go along with the context of the text.
 Campaign Target: {campaign_target}
 Text Keywords: {text_keywords}
+Prices: {prices}
 Contact Info: https://walink.co/607ea3
 
 Please return the 3 options separated so it's easier to iterate through them, don't return the parameters or any message just the responses inside the result.
 
 Text Structure:
 
-[Promocion]
+[Promocion con emojis]
 
 🏨 Hotel Eco Resort 
 🐴 Club Hípico 
@@ -90,9 +91,9 @@ Text Structure:
 🛣️Calles Pavimentadas
 💧⚡Servicios Básicos
 🏢👷🏻‍♂️Proyectos Inmobiliarios
-[You can edit the specs section to have variations if you want, but don't modify too much these emojis]
+[I want the specs from the options to be different, play with the emojis or skip this part on one option]
 
-[Llamada a la acción]"""
+[Llamada a la acción, hazlo llamativo e incluye emojis]"""
 
     if prices:
         prompt = promptWithPrices
