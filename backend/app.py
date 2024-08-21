@@ -50,13 +50,13 @@ Don't use bold text, make the text pretty and use emojis that would go along wit
 Campaign Target: {campaign_target}
 Text Keywords: {text_keywords}
 Prices: {prices}
-Contact Info: https://walink.co/607ea3
+Contact Info: 62221110
 
 Please return the 3 options separated so it's easier to iterate through them, don't return the parameters or any message just the responses inside the result.
 
 Text Structure:
 
-[Con emojis Promocion y precios]
+[Promocion y precios con emojis]
 
 🏨 Hotel Eco Resort 
 🐴 Club Hípico 
@@ -65,8 +65,11 @@ Text Structure:
 🏊🏻Club House
 🛣️Calles Pavimentadas
 💧⚡Servicios Básicos
+💡Cableado subterráneo
+🚴‍♂️ Ciclovías
 🏢👷🏻‍♂️Proyectos Inmobiliarios
-[I want the specs from the options to be different, play with the emojis or skip this part on one option]
+💻 Fibra óptica
+[I want the specs from the options to be different, play with the specs and emojis to make the options different from each other, or skip this part on one option]
 
 [Llamada a la acción, hazlo llamativo e incluye emojis]"""
 
@@ -90,8 +93,11 @@ Text Structure:
 🏊🏻Club House
 🛣️Calles Pavimentadas
 💧⚡Servicios Básicos
+💡Cableado subterráneo
+🚴‍♂️ Ciclovías
 🏢👷🏻‍♂️Proyectos Inmobiliarios
-[I want the specs from the options to be different, play with the emojis or skip this part on one option]
+💻 Fibra óptica
+[I want the specs from the options to be different, play with the specs and emojis to make the options different from each other, or skip this part on one option]
 
 [Llamada a la acción, hazlo llamativo e incluye emojis]"""
 
