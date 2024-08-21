@@ -31,6 +31,23 @@ const PostCard = ({ text, imageUrl }) => {
         setAlertVisible(false);
     };
 
+    const linkifyText = (text) => {
+        const urlPattern = /(https?:\/\/[^\s]+)/g;
+        const parts = text.split(urlPattern);
+        return parts.map((part, index) => {
+            if (urlPattern.test(part)) {
+                return (
+                    <a key={index} href={part} className="text-blue-500" target="_blank" rel="noopener noreferrer">
+                        {part}
+                    </a>
+                );
+            }
+            return part;
+        });
+    };
+
+    const textChunks = linkifyText(text);
+
     return (
         <div className="bg-[#001540] text-white p-4 rounded-lg shadow-2xl shadow-black max-w-md w-full relative">
             <div className="flex items-center mb-4">
@@ -51,14 +68,21 @@ const PostCard = ({ text, imageUrl }) => {
 
             <div className="mb-4">
                 <div className="whitespace-pre-line w-full">
-                    <Typewriter
-                        text={text}
-                        cursorColor="white"
-                        typeSpeed={14}
-                        deleteSpeed={15}
-                        delay={500}
-                        loop={false}
-                    />
+                    {textChunks.map((chunk, index) => (
+                        typeof chunk === 'string' ? (
+                            <Typewriter
+                                key={index}
+                                text={chunk}
+                                cursorColor="white"
+                                typeSpeed={14}
+                                deleteSpeed={15}
+                                delay={500}
+                                loop={false}
+                            />
+                        ) : (
+                            <span key={index}>{chunk}</span>
+                        )
+                    ))}
                 </div>
             </div>
             <div className="-mx-4">
