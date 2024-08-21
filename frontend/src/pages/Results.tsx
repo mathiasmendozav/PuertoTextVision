@@ -9,8 +9,9 @@ import dummyData from '../data/dummyData';
 
 const Results = () => {
     const location = useLocation();
-    const results = location.state?.results;
-    console.log(results);
+    let results = location.state?.results;
+
+    results = JSON.stringify(results)
     
 
     // Framer Motion animation variants
