@@ -4,6 +4,7 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 import replicate
+from helper import *
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -51,7 +52,7 @@ Text Keywords: {text_keywords}
 Prices: {prices}
 Contact Info: https://walink.co/607ea3
 
-Please return the 3 options inside a json list, don't return the parameters.
+Please return the 3 options inside a json list, don't return the parameters or any message just the responses inside the [].
 
 Text Structure:
 
@@ -75,7 +76,7 @@ Campaign Target: {campaign_target}
 Text Keywords: {text_keywords}
 Contact Info: https://walink.co/607ea3
 
-Please return the 3 options inside a json list, don't return the parameters. And don't 
+Please return the 3 options inside a json list, don't return the parameters or any message just the responses inside the [].
 
 Text Structure:
 
