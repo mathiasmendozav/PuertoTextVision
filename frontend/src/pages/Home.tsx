@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Form from '../components/Form';
 import LoadingSpinner from '../components/LoadingSpinner';
-import dummyData from '../data/dummyData';
 
 const Home = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -21,11 +20,11 @@ const Home = () => {
             });
 
             if (response.ok) {
-                const result = await response.text();
-                console.log('Form data successfully sent: ', result);
+                const results = await response.text();
+                console.log('Form data successfully sent: ', results);
                 // Simulate loading and generating ads
                 setTimeout(() => {
-                    navigate('/results', { state: { generatedAds: dummyData } });
+                    navigate('/results', { state: { results: results } });
                 }, 2000);
             } else {
                 console.error('Failed to send form data', response.statusText);
