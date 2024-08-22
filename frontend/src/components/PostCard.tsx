@@ -10,9 +10,12 @@ import { HiDotsHorizontal } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
 import CustomAlert from './customAlert';
 
-const PostCard = ({ text, imageUrl }) => {
+const PostCard = ({ text, image }) => {
     const [alertVisible, setAlertVisible] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
+
+    console.log(image);
+    
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(text)
@@ -86,7 +89,7 @@ const PostCard = ({ text, imageUrl }) => {
                 </div>
             </div>
             <div className="-mx-4">
-                <img src={imageUrl} alt="Ad Visual" className="w-full" />
+                <img src={URL.createObjectURL(image)} alt="Ad Visual" className="w-full" />
             </div>
             <div className="bg-gray-100 text-black -mx-4 px-4 py-3 flex justify-between items-center mb-4">
                 <div>
