@@ -38,10 +38,12 @@ def submit_form():
     campaign_target = request.form.get('campaignTarget')
     text_keywords = request.form.get('textKeywords')
     prices = request.form.get('prices')
+    contacto = request.form.get('contacto')
 
     # Process the data as needed
     print(f'Campaign Target: {campaign_target}')
     print(f'Text Keywords: {text_keywords}')
+    print(f'Contacto: {contacto}')
     if prices:
         print(f'Prices: {prices}')
     
@@ -50,7 +52,7 @@ Don't use bold text, make the text pretty and use emojis that would go along wit
 Campaign Target: {campaign_target}
 Text Keywords: {text_keywords}
 Prices: {prices}
-Contact Info: https://walink.co/607ea3
+Contact Info: {contacto}
 
 Please return the 3 options separated so it's easier to iterate through them, don't return the parameters or any message just the responses inside the result.
 
@@ -77,7 +79,7 @@ Text Structure:
 Don't use bold text, make the text pretty and use emojis that would go along with the context of the text.
 Campaign Target: {campaign_target}
 Text Keywords: {text_keywords}
-Contact Info: https://walink.co/607ea3
+Contact Info: {contacto}
 
 Please return the 3 options separated so it's easier to iterate through them, don't return the parameters or any message just the responses inside the result.
 
