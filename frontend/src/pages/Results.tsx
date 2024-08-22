@@ -13,12 +13,10 @@ import testImage from '../assets/image.jpeg'
 const Results = () => {
     const location = useLocation();
     let results = location.state?.results;
-
+    const { image } = location.state
 
     results = JSON.parse(results)
     console.log(results);
-    
-    
 
     // Framer Motion animation variants
     const cardVariants = {
@@ -38,7 +36,7 @@ const Results = () => {
                         transition={{ duration: 0.6, delay: idx * 0.7 }}
                         viewport={{ once: true, amount: 0.4 }}
                     >
-                        <PostCard text={result} imageUrl={testImage} />
+                        <PostCard text={result} image={image} />
                     </motion.div>
                 ))}
             </div>
