@@ -45,35 +45,7 @@ def submit_form():
     if prices:
         print(f'Prices: {prices}')
     
-    promptWithPrices = f"""Please write me three different options different from each other for my text I'll use to publish an ad for Puerto Madero Urubó, a real estate company/urbanización that sells terrenos, given the following structure for the options, use the provided parameters to generate the 3 different options, make sure you use parameters: campaign target, text keywords and prices for the head of the text, then make sure you place the specs of the project in the middle with space between top and bottom of text, after that at the very bottom of the text the call to action part  using the contact info parameter
-Don't use bold text, make the text pretty and use emojis that would go along with the context of the text.
-Campaign Target: {campaign_target}
-Text Keywords: {text_keywords}
-Prices: {prices}
-Contact Info: 62221110
-
-Please return the 3 options separated so it's easier to iterate through them, don't return the parameters or any message just the responses inside the result.
-
-Text Structure:
-
-[Promocion y precios con emojis]
-
-🏨 Hotel Eco Resort 
-🐴 Club Hípico 
-🏇🏻 Club de Polo 
-🏝️ Laguna Paisajista 
-🏊🏻Club House
-🛣️Calles Pavimentadas
-💧⚡Servicios Básicos
-💡Cableado subterráneo
-🚴‍♂️ Ciclovías
-🏢👷🏻‍♂️Proyectos Inmobiliarios
-💻 Fibra óptica
-[I want the specs from the options to be different, play with the specs and emojis to make the options different from each other, or skip this part on one option]
-
-[Llamada a la acción, hazlo llamativo e incluye emojis]"""
-
-    promptWithoutPrices = f"""Please write me three different options different from each other for my text I'll use to publish an ad for Puerto Madero Urubó, a real estate company/urbanización that sells terrenos, given the following structure for the options, use the provided parameters to generate the 3 different options, make sure you use parameters: campaign target and text keywords for the head of the text, then make sure you place the specs of the project in the middle with space between top and bottom of text, after that at the very bottom of the text the call to action part  using the contact info parameter
+    promptWithPrices = f"""Please write me three different options from each other for a text in spanish I'll use to publish an ad for Puerto Madero Urubó, a real estate company/urbanización that sells terrenos, generate the 3 different options, make sure you use parameters: campaign target, prices and text keywords for the head of the text (make emphasis on this), then make sure you place the specs of the project in the middle with space between top and bottom of text, at the very bottom of the text place the call to action part using the contact info parameter
 Don't use bold text, make the text pretty and use emojis that would go along with the context of the text.
 Campaign Target: {campaign_target}
 Text Keywords: {text_keywords}
@@ -84,7 +56,7 @@ Please return the 3 options separated so it's easier to iterate through them, do
 
 Text Structure:
 
-[Promocion con emojis]
+[Precios y Promocion con antes que texto]
 
 🏨 Hotel Eco Resort 
 🐴 Club Hípico 
@@ -97,9 +69,36 @@ Text Structure:
 🚴‍♂️ Ciclovías
 🏢👷🏻‍♂️Proyectos Inmobiliarios
 💻 Fibra óptica
-[I want the specs from the options to be different, play with the specs and emojis to make the options different from each other, or skip this part on one option]
+[I want the specs from the options to be different from each other, but don't add information I'm not giving you, exclude the specs on one of the options just empty space]
 
-[Llamada a la acción, hazlo llamativo e incluye emojis]"""
+[Llamada a la acción al final, hazlo llamativo incluyendo emojis para atraer al cliente]"""
+
+    promptWithoutPrices = f"""Please write me three different options from each other for a text in spanish I'll use to publish an ad for Puerto Madero Urubó, a real estate company/urbanización that sells terrenos, generate the 3 different options, make sure you use parameters: campaign target and text keywords for the head of the text (make emphasis on this), then make sure you place the specs of the project in the middle with space between top and bottom of text, at the very bottom of the text place the call to action part using the contact info parameter
+Don't use bold text, make the text pretty and use emojis that would go along with the context of the text.
+Campaign Target: {campaign_target}
+Text Keywords: {text_keywords}
+Contact Info: https://walink.co/607ea3
+
+Please return the 3 options separated so it's easier to iterate through them, don't return the parameters or any message just the responses inside the result.
+
+Text Structure:
+
+[Promocion con emojis antes que texto]
+
+🏨 Hotel Eco Resort 
+🐴 Club Hípico 
+🏇🏻 Club de Polo 
+🏝️ Laguna Paisajista 
+🏊🏻Club House
+🛣️Calles Pavimentadas
+💧⚡Servicios Básicos
+💡Cableado subterráneo
+🚴‍♂️ Ciclovías
+🏢👷🏻‍♂️Proyectos Inmobiliarios
+💻 Fibra óptica
+[I want the specs from the options to be different from each other, but don't add information I'm not giving you, exclude the specs on one of the options just empty space]
+
+[Llamada a la acción al final, hazlo llamativo incluyendo emojis para atraer al cliente]"""
 
     if prices:
         prompt = promptWithPrices
