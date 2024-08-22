@@ -23,6 +23,10 @@ const Form = ({ onSubmit }) => {
         formData.append('textKeywords', textKeywords);
         formData.append('prices', prices);
         formData.append('contacto', contacto);
+        
+        if(image !== null){
+            formData.append('image', image);
+        }
 
         onSubmit(formData); // Call the onSubmit function passed as a prop
     };
