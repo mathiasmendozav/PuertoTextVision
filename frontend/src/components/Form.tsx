@@ -63,6 +63,7 @@ const Form = ({ onSubmit }) => {
                                             checked={campaignTarget === target}
                                             onChange={() => setCampaignTarget(target)}
                                             className="hidden"
+                                            required
                                         />
                                         {icons[target]}
                                         <span className="font-medium ml-2">{target}</span>
@@ -93,6 +94,7 @@ const Form = ({ onSubmit }) => {
                                 accept="image/*"
                                 className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                                 onChange={handleImageChange}
+                                required
                             />
                         </div>
                     </div>
@@ -105,6 +107,7 @@ const Form = ({ onSubmit }) => {
                             placeholder="Introduce palabras clave para el texto"
                             value={textKeywords}
                             onChange={(e) => setTextKeywords(e.target.value)}
+                            required
                         />
                     </div>
                     <div>
@@ -144,6 +147,7 @@ const Form = ({ onSubmit }) => {
                                 placeholder="Introduce los precios a mencionar"
                                 value={prices}
                                 onChange={(e) => setPrices(e.target.value)}
+                                required
                             />
                         </div>
                     )}
