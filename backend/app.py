@@ -37,7 +37,7 @@ def home():
 def submit_form():
     campaign_target = request.form.get('campaignTarget')
     text_keywords = request.form.get('textKeywords')
-    prices = request.form.get('prices')
+    prices = request.form.get('prices') or None
     contacto = request.form.get('contacto')
 
     # Process the data as needed
@@ -58,8 +58,10 @@ Please return the 3 options separated so it's easier to iterate through them, do
 
 Text Structure:
 
-[Precios y Promocion con antes que texto]
+[Explica Precios y Promocion con antes que texto, no quiero line breaks aqui, separa los specs abajo]
 
+
+[I want the specs from the options to be different from each other, but don't add information I'm not giving you, omit this section on one of the options]
 🏨 Hotel Eco Resort 
 🐴 Club Hípico 
 🏇🏻 Club de Polo 
@@ -71,9 +73,9 @@ Text Structure:
 🚴‍♂️ Ciclovías
 🏢👷🏻‍♂️Proyectos Inmobiliarios
 💻 Fibra óptica
-[I want the specs from the options to be different from each other, but don't add information I'm not giving you, exclude the specs on one of the options just empty space]
 
-[Llamada a la acción al final, hazlo llamativo incluyendo emojis para atraer al cliente]"""
+
+[Llamada a la acción al final, hazlo llamativo incluyendo emojis para atraer al cliente, no menciones precios aqui]"""
 
     promptWithoutPrices = f"""Please write me three different options from each other for a text in spanish I'll use to publish an ad for Puerto Madero Urubó, a real estate company/urbanización that sells terrenos, generate the 3 different options, make sure you use parameters: campaign target and text keywords for the head of the text (make emphasis on this), then make sure you place the specs of the project in the middle with space between top and bottom of text, at the very bottom of the text place the call to action part using the contact info parameter
 Don't use bold text, make the text pretty and use emojis that would go along with the context of the text.
@@ -85,8 +87,10 @@ Please return the 3 options separated so it's easier to iterate through them, do
 
 Text Structure:
 
-[Promocion con emojis antes que texto]
+[Explica Promocion con emojis antes que texto, no quiero line breaks aqui, separa los specs abajo]
 
+
+[I want the specs from the options to be different from each other, but don't add information I'm not giving you, omit this section on one of the options]
 🏨 Hotel Eco Resort 
 🐴 Club Hípico 
 🏇🏻 Club de Polo 
@@ -98,9 +102,9 @@ Text Structure:
 🚴‍♂️ Ciclovías
 🏢👷🏻‍♂️Proyectos Inmobiliarios
 💻 Fibra óptica
-[I want the specs from the options to be different from each other, but don't add information I'm not giving you, exclude the specs on one of the options just empty space]
 
-[Llamada a la acción al final, hazlo llamativo incluyendo emojis para atraer al cliente]"""
+
+[Llamada a la acción al final, hazlo llamativo incluyendo emojis para atraer al cliente, no menciones precios aqui]"""
 
     if prices:
         prompt = promptWithPrices
@@ -123,10 +127,15 @@ Text Structure:
         input=input
     )
     result = "".join(output)
+    print(result)
     
-    result = extract_options(result)
+    try:
+        result = extract_options(result)
     
-    return result
+    finally:
+        return result
+    
+    
 
 
 if __name__  == '__main__':
