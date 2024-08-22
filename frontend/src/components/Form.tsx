@@ -13,6 +13,7 @@ const Form = ({ onSubmit }) => {
     const [showImageHint, setShowImageHint] = useState(false);
     const [includePrices, setIncludePrices] = useState(false);
     const [prices, setPrices] = useState('');
+    const [contacto, setContacto] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -21,6 +22,7 @@ const Form = ({ onSubmit }) => {
         formData.append('campaignTarget', campaignTarget);
         formData.append('textKeywords', textKeywords);
         formData.append('prices', prices);
+        formData.append('contacto', contacto);
 
         onSubmit(formData); // Call the onSubmit function passed as a prop
     };
@@ -99,7 +101,7 @@ const Form = ({ onSubmit }) => {
                         </div>
                     </div>
                     <div>
-                        <label className="block text-white mb-3 font-medium" htmlFor="textKeywords">Palabras Clave del Texto Deseado</label>
+                        <label className="block text-white mb-3 font-medium" htmlFor="textKeywords">Palabras Clave para el Texto Deseado</label>
                         <input
                             type="text"
                             id="textKeywords"
@@ -151,6 +153,18 @@ const Form = ({ onSubmit }) => {
                             />
                         </div>
                     )}
+                    <div>
+                        <label className="block text-white mb-3 font-medium" htmlFor="contacto">Introduce tu Número o enlace de Whatsapp</label>
+                        <input
+                            type="text"
+                            id="contacto"
+                            className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                            placeholder="Introduce los precios a mencionar"
+                            value={contacto}
+                            onChange={(e) => setContacto(e.target.value)}
+                            required
+                        />
+                    </div>
                     <button type="submit" className="w-full flex justify-center gap-2 items-center bg-gradient-to-r from-teal-500 to-blue-500 text-white font-bold py-3 rounded-lg shadow-lg hover:from-teal-600 hover:to-blue-600 transition duration-300">
                         <BsRobot />
                         Generar Textos
