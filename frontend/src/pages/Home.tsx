@@ -24,7 +24,12 @@ const Home = () => {
                 console.log('Form data successfully sent: ', results);
                 // Simulate loading and generating ads
                 setTimeout(() => {
-                    navigate('/results', { state: { results: results } });
+                    navigate('/results', {
+                        state: {
+                            results: results,
+                            image: formData.get('image')
+                        }
+                    });
                 }, 2000);
             } else {
                 console.error('Failed to send form data', response.statusText);
