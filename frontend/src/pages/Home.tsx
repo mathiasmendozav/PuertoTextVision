@@ -14,7 +14,7 @@ const Home = () => {
         setIsSubmitted(true);
 
         try {
-            const response = await fetch('http://0.0.0.0:10000/submit', {
+            const response = await fetch('/submit', {
                 method: 'POST',
                 body: formData,
             });
