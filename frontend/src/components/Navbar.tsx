@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <nav className="bg-[#001540] border-b-[3px] border-gray-300 text-white py-4 px-6 max-md:px-3 flex items-center justify-between sticky top-[-1px] z-50">
+        <nav className="bg-[#001540] text-white py-4 px-6 max-md:px-3 flex items-center border-b-[3.3px] border-gray-200 justify-between sticky top-[-1px] z-50">
             <div className="flex items-center">
                 <img src={logo} alt="Logo" className="h-12 max-md:h-10 mr-2" />
                 <span className="font-semibold text-xl max-md:text-lg">PuertoTextVision</span>

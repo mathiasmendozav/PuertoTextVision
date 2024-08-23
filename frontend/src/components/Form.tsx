@@ -16,7 +16,10 @@ const Form = ({ onSubmit }: any) => {
     const [prices, setPrices] = useState('');
     const [contacto, setContacto] = useState('');
 
-    const handleSubmit = () => {
+    //@ts-ignore
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
         const formData = new FormData();
         formData.append('campaignTarget', campaignTarget);
         formData.append('textKeywords', textKeywords);
@@ -42,7 +45,7 @@ const Form = ({ onSubmit }: any) => {
     };
 
     return (
-        <div className="bg-[#001540] max-sm:w-[90%] shadow-xl shadow-gray-800 mb-6 flex items-center justify-center rounded-md">
+        <div className="bg-[#001540] max-sm:w-[90%] shadow-2xl shadow-gray-900 border-[2.5px] border-gray-300 mb-6 flex items-center justify-center rounded-md">
             <div className="max-w-xl max-sm:w-full p-8 sm:p-8 md:p-10 shadow-xl">
                 <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 text-center">Generador de Textos</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
