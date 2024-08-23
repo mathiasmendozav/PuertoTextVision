@@ -1,23 +1,22 @@
-// src/components/Form.js
-import React, { useState } from 'react';
+////////////////////
+// Form Component
+////////////////////
+import { useState } from 'react';
 import { TbMessages } from 'react-icons/tb';
 import { GiMoneyStack } from 'react-icons/gi';
 import { BsHearts, BsRobot } from 'react-icons/bs';
-import { motion } from 'framer-motion';
 
-const Form = ({ onSubmit }) => {
+const Form = ({ onSubmit }: any) => {
     const [campaignTarget, setCampaignTarget] = useState('');
     const [textKeywords, setTextKeywords] = useState('');
-    const [image, setImage] = useState(null);
-    const [imagePreview, setImagePreview] = useState(null);
+    const [image, setImage] = useState<File | null>(null);
+    const [imagePreview, setImagePreview] = useState<string | null>(null);
     const [showImageHint, setShowImageHint] = useState(false);
     const [includePrices, setIncludePrices] = useState(false);
     const [prices, setPrices] = useState('');
     const [contacto, setContacto] = useState('');
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-
+    const handleSubmit = () => {
         const formData = new FormData();
         formData.append('campaignTarget', campaignTarget);
         formData.append('textKeywords', textKeywords);
@@ -31,7 +30,7 @@ const Form = ({ onSubmit }) => {
         onSubmit(formData); // Call the onSubmit function passed as a prop
     };
 
-    const handleImageChange = (event) => {
+    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files[0]) {
             const file = event.target.files[0];
             setImage(file);
@@ -51,7 +50,7 @@ const Form = ({ onSubmit }) => {
                         <label className="block text-white mb-3 font-medium">Objetivo de la Campaña</label>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             {['Mensajes', 'Ventas', 'Interacción'].map((target) => {
-                                const icons = {
+                                const icons: any = {
                                     'Mensajes': <TbMessages size={24} />,
                                     'Ventas': <GiMoneyStack size={24} />,
                                     'Interacción': <BsHearts size={24} />

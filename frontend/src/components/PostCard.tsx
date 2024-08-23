@@ -10,6 +10,7 @@ import { HiDotsHorizontal } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
 import CustomAlert from './customAlert';
 
+// @ts-ignore
 const PostCard = ({ text, image }) => {
     const [alertVisible, setAlertVisible] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
@@ -34,9 +35,11 @@ const PostCard = ({ text, image }) => {
         setAlertVisible(false);
     };
 
+    //@ts-ignore
     const linkifyText = (text) => {
         const urlPattern = /(https?:\/\/[^\s]+)/g;
         const parts = text.split(urlPattern);
+        //@ts-ignore
         return parts.map((part, index) => {
             if (urlPattern.test(part)) {
                 return (
@@ -71,7 +74,7 @@ const PostCard = ({ text, image }) => {
 
             <div className="mb-4">
                 <div className="whitespace-pre-line w-full">
-                    {textChunks.map((chunk, index) => (
+                    {textChunks.map((chunk:any, index:any) => (
                         typeof chunk === 'string' ? (
                             <Typewriter
                                 key={index}

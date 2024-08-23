@@ -1,14 +1,9 @@
 ////////////////
 // Results Page
 ////////////////
-import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import PostCard from '../components/PostCard';
-import dummyData from '../data/dummyData';
-
-// asset
-import testImage from '../assets/image.jpeg'
 
 const Results = () => {
     const location = useLocation();
@@ -27,7 +22,7 @@ const Results = () => {
     return (
         <div className="min-h-screen flex flex-col items-center justify-center pb-4 bg-gray-300">
             <div className="my-8 max-md:my-7 px-6 grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
-                {results.map((result, idx) => (
+                {results.map((result:any, idx:any) => (
                     <motion.div
                         key={idx}
                         initial="hidden"

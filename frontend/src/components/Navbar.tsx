@@ -1,9 +1,9 @@
+////////////////////
 // Navbar Component
+////////////////////
 import logo from '../../public/logo.jpg';
 import { BsRobot } from "react-icons/bs";
 import { Link } from "react-router-dom";
-
-import axios from 'axios'
 
 const Navbar = () => {
     return (

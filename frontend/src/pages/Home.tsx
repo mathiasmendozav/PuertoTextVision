@@ -1,7 +1,7 @@
 ///////////////////////
 // Main Page Component
 ///////////////////////
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Form from '../components/Form';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -10,7 +10,7 @@ const Home = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const navigate = useNavigate();
 
-    const handleFormSubmit = async (formData) => {
+    const handleFormSubmit = async (formData:any) => {
         setIsSubmitted(true);
 
         try {
