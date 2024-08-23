@@ -10,7 +10,7 @@ from helper import *
 
 # Initialize Flask app
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})
+CORS(app, resources={r"/*": {"origins": "http://localhost:5000"}})
 
 # Getting frontend folder dist
 frontend_folder = os.path.join(os.getcwd(),'..','frontend')
