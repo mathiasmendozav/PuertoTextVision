@@ -1,7 +1,11 @@
-import React, { useEffect } from 'react';
+//////////////////////////
+// Custom Alert Component
+//////////////////////////
+import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
 
+//@ts-ignore
 const CustomAlert = ({ message, isVisible, onClose }) => {
     useEffect(() => {
         if (isVisible) {

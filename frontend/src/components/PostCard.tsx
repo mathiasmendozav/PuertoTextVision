@@ -73,7 +73,7 @@ const PostCard = ({ text, image }) => {
             </div>
 
             <div className="mb-4">
-                <div className="whitespace-pre-line w-full">
+                <div className="whitespace-pre-line w-full font-sono">
                     {textChunks.map((chunk:any, index:any) => (
                         typeof chunk === 'string' ? (
                             <Typewriter

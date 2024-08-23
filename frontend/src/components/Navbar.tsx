@@ -10,7 +10,7 @@ const Navbar = () => {
         <nav className="bg-[#001540] border-b-[3px] border-gray-300 text-white py-4 px-6 max-md:px-3 flex items-center justify-between sticky top-[-1px] z-50">
             <div className="flex items-center">
                 <img src={logo} alt="Logo" className="h-12 max-md:h-10 mr-2" />
-                <span className="font-semibold text-xl max-md:text-base">PuertoTextVision</span>
+                <span className="font-semibold text-xl max-md:text-lg">PuertoTextVision</span>
             </div>
             <Link to={'/'} onClick={() => {
                 if (window.location.pathname === '/') { window.location.reload(); }
