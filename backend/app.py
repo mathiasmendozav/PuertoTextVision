@@ -2,7 +2,7 @@
 # Main Flask App Backend
 ##########################
 from flask import Flask, request, send_from_directory # type: ignore
-from flask_cors import CORS # type: ignore
+from flask_cors import cross_origin # type: ignore
 from dotenv import load_dotenv # type: ignore
 import os
 import replicate # type: ignore
@@ -10,7 +10,6 @@ from helper import *
 
 # Initialize Flask app
 app = Flask(__name__)
-CORS(app, origins=['http://localhost:5000', 'https://puertotextvision.onrender.com/'])
 
 # Getting frontend folder dist
 frontend_folder = os.path.join(os.getcwd(),'..','frontend')
@@ -35,6 +34,9 @@ def index(filename):
     return send_from_directory(dist_folder, filename)
     
 @app.route('/submit', methods=['POST'])
+@app.route("/api/v1/users/", methods=['GET'])
+@cross_origin(origin='*', methods=['GET', 'HEAD', 'POST', 'OPTIONS', 'PUT'], 
+             headers=['Content-Type'], supports_credentials=True)
 def submit_form():
     campaign_target = request.form.get('campaignTarget')
     text_keywords = request.form.get('textKeywords')
