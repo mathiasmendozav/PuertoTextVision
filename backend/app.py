@@ -1,14 +1,20 @@
-# Main Flask App Backend will go here...
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-from dotenv import load_dotenv
+##########################
+# Main Flask App Backend
+##########################
+from flask import Flask, request, send_from_directory # type: ignore
+from flask_cors import CORS # type: ignore
+from dotenv import load_dotenv # type: ignore
 import os
-import replicate
+import replicate # type: ignore
 from helper import *
 
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})
+
+# Getting frontend folder dist
+frontend_folder = os.path.join(os.getcwd(),'..','frontend')
+dist_folder = os.path.join(frontend_folder,'dist')
 
 # Load Env Variables
 load_dotenv()
@@ -16,22 +22,17 @@ load_dotenv()
 # Get the API key for Llama3.1
 api_key = os.getenv("REPLICATE_API_TOKEN")
 
+############
 # Routes
-@app.route('/')
-def home():
-    input = {
-        "prompt": "Tina has one brother and one sister. How many sisters do Tina's siblings have?",
-        "max_tokens": 1024
-    }
+############
 
-    output = replicate.run(
-        "meta/meta-llama-3-8b-instruct",
-        input=input
-    )
-    result = "".join(output)
-    
-    return result
-    #=> "Tina has one brother and one sister. From the brother's ...
+# server static files from the dist folder under the frontend directory
+@app.route('/', defaults={'filename':''})
+@app.route('/<path:filename>')
+def index(filename):
+    if not filename:
+        filename = 'index.html'
+    return send_from_directory(dist_folder, filename)
     
 @app.route('/submit', methods=['POST'])
 def submit_form():
