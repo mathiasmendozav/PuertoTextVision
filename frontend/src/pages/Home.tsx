@@ -1,7 +1,7 @@
 ///////////////////////
 // Main Page Component
 ///////////////////////
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Form from '../components/Form';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -10,7 +10,7 @@ const Home = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const navigate = useNavigate();
 
-    const handleFormSubmit = async (formData:any) => {
+    const handleFormSubmit = async (formData: any) => {
         setIsSubmitted(true);
 
         try {
@@ -40,6 +40,12 @@ const Home = () => {
             setIsSubmitted(false);
         }
     };
+
+    useEffect(() => {
+        if (isSubmitted) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }, [isSubmitted]);
 
     return (
         <div className='w-full min-h-screen bg-gray-400'>
